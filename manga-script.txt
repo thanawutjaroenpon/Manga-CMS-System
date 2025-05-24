@@ -1,0 +1,37 @@
+//list link go-manga
+const urls = [...document.querySelectorAll("#readerarea img.ts-main-image")].map(img => img.src);
+console.log(urls.join('\n'));
+
+//list link oremanga
+const urls = [...document.querySelectorAll('.reader-area-main img')].map(img => img.src);
+console.log(urls.join('\n'));
+
+
+//download all link go-manga
+[...document.querySelectorAll("#readerarea img.ts-main-image")].forEach((img, i) => {
+    const a = document.createElement('a');
+    a.href = img.src;
+    a.download = `image_${i+1}.jpg`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+});
+
+//download all link oremanga
+[...document.querySelectorAll('.reader-area-main img')].forEach((img, i) => {
+    const a = document.createElement('a');
+    a.href = img.src;
+    a.download = `image_${i + 1}.jpg`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+});
+
+
+//list manga name and link
+document.querySelectorAll('.listo .bsx a[href]').forEach(a => {
+  const title = a.getAttribute('title') || a.querySelector('.tt')?.innerText.trim();
+  const url = a.href;
+  console.log(title, url);
+});
+
