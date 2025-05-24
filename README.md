@@ -1,112 +1,78 @@
-Manga Image Downloader & Web Auth System
-This project consists of two main parts:
+# Manga Image Downloader & PHP Auth System
 
-A PHP-based authentication/admin system with registration, login, logout, and admin panels.
+This project combines a simple PHP authentication system with an admin dashboard, plus a Python GUI tool for downloading manga images from popular manga reading sites.
 
-A Python GUI tool for downloading manga images from manga reader websites (Oremanga and GoManga) using Selenium and BeautifulSoup.
+## Features
 
-Features
-PHP Web Application
-User registration (register.php)
+### PHP Web App
 
-User login (login.php)
+- User registration (`register.php`)
+- Login/logout (`login.php`, `logout.php`)
+- Admin dashboard and points management (`admin.php`, `admin_point.php`)
+- Database connection in `db.php`
 
-User logout (logout.php)
+### Python Manga Downloader (`dwm.py`)
 
-Admin dashboard (admin.php)
+- Download all images from a manga chapter on **Oremanga** or **GoManga**
+- User-friendly GUI (Tkinter)
+- Uses Selenium and BeautifulSoup
+- Saves images to a folder of your choice
 
-Admin points management (admin_point.php)
+---
 
-Centralized database connection (db.php)
+## Getting Started
 
-Python Manga Downloader (dwm.py)
-Download all images from a manga chapter on supported sites.
+### PHP Web App
 
-Supports Oremanga and GoManga.
+1. **Requirements:** PHP 7+, MySQL, and a web server (Apache, Nginx, etc.)
+2. Place the PHP files on your server.
+3. Update `db.php` with your database details.
+4. Create the required user/admin tables in your MySQL database.
+5. Access via browser to register and log in.
 
-User-friendly GUI with Tkinter.
+### Python Manga Downloader
 
-Downloads images to a user-specified folder.
+1. **Requirements:**  
+   - Python 3.7+  
+   - Selenium (`pip install selenium`)  
+   - BeautifulSoup (`pip install beautifulsoup4`)  
+   - Requests (`pip install requests`)  
+   - Tkinter (included with most Python installs)  
+   - Chrome WebDriver (matching your Chrome version)
+2. Run the script:
+    ```bash
+    python dwm.py
+    ```
+3. Use the GUI:  
+   - Select the site (Oremanga/GoManga)
+   - Paste the manga chapter URL
+   - Click "Download Images"
 
-Uses Selenium for dynamic content, and BeautifulSoup for HTML parsing.
+---
 
-Getting Started
-1. PHP Web Application
-Requirements
-PHP 7.x or higher
+## File List
 
-MySQL or MariaDB
+- `index.php`
+- `login.php`
+- `logout.php`
+- `register.php`
+- `admin.php`
+- `admin_point.php`
+- `db.php`
+- `dwm.py`
 
-Web server (Apache, Nginx, etc.)
+---
 
-Setup
-Clone or download this repository.
+## Notes
 
-Place the PHP files in your web server directory.
+- For learning and personal use only. Respect the manga sites’ terms of service.
+- The PHP system is a basic template—add security improvements before using in production (like password hashing and input validation).
 
-Create a MySQL database and import your user/admin schema as required.
+---
 
-Update the database credentials in db.php.
+## License
 
-Access the site through your browser to use the registration and login system.
-
-2. Manga Downloader (Python)
-Requirements
-Python 3.7+
-
-Selenium (pip install selenium)
-
-BeautifulSoup (pip install beautifulsoup4)
-
-Requests (pip install requests)
-
-Tkinter (usually included with Python)
-
-Chrome WebDriver (must match your Chrome version and be on your PATH)
-
-Usage
-Run dwm.py:
-
-bash
-Copy
-Edit
-python dwm.py
-In the GUI:
-
-Select the manga site (Oremanga or GoManga).
-
-Paste the chapter URL.
-
-Optionally, set a folder for downloaded images.
-
-Click "Download Images".
-
-Downloaded images will be saved to the specified folder.
-
-Folder Structure
-pgsql
-Copy
-Edit
-.
-├── admin.php
-├── admin_point.php
-├── db.php
-├── index.php
-├── login.php
-├── logout.php
-├── register.php
-├── dwm.py
-Notes
-The Python downloader is for educational purposes. Respect the terms of service of manga hosting websites.
-
-The PHP system is a simple template and may need security hardening for production use (e.g., password hashing, input validation, CSRF protection, etc.).
-
-License
 MIT License
 
-Credits
-Selenium: https://www.selenium.dev/
+---
 
-BeautifulSoup: https://www.crummy.com/software/BeautifulSoup/
-
-Tkinter: Standard Python GUI library
